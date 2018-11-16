@@ -17,6 +17,7 @@ export default class ServerHtml extends Component {
     appName: PropTypes.string.isRequired,
     appState: PropTypes.object.isRequired,
     assets: PropTypes.object.isRequired,
+    chunkExtractor: PropTypes.object.isRequired,
     component: PropTypes.element.isRequired,
     htmlDir: PropTypes.string,
     htmlLang: PropTypes.string,
@@ -86,10 +87,15 @@ export default class ServerHtml extends Component {
   }
 
   getScript() {
-    const { assets } = this.props;
-    return Object.keys(assets.javascript).map((js, index) =>
+    const { assets, chunkExtractor } = this.props;
+
+    const scripts = Object.keys(assets.javascript).map((js, index) =>
       this.getStatic({ filePath: assets.javascript[js], type: 'js', index }),
     );
+
+    scripts.concat(chunkExtractor.getScriptTags());
+
+    return scripts;
   }
 
   getFaviconLink() {

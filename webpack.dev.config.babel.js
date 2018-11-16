@@ -6,6 +6,7 @@ import path from 'path';
 import config from 'config';
 import webpack from 'webpack';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
+import WriteFilePlugin from 'write-file-webpack-plugin';
 
 import { getPlugins, getRules } from './webpack-common';
 import webpackConfig from './webpack.prod.config.babel';
@@ -58,6 +59,9 @@ export default Object.assign({}, webpackConfig, {
   },
   plugins: [
     ...getPlugins(),
+    new WriteFilePlugin({
+      test: /loadable-stats/,
+    }),
     // Load unminified React and Redux in development to get better
     // error messages, because they use
     // [Invariant](https://github.com/zertosh/invariant) which

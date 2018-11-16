@@ -200,6 +200,8 @@
   "homepage": "https://github.com/mozilla/addons-frontend#readme",
   "dependencies": {
     "@babel/polyfill": "7.0.0",
+    "@loadable/component": "5.1.2",
+    "@loadable/server": "5.1.1",
     "base62": "1.2.8",
     "base64url": "3.0.0",
     "better-npm-run": "0.1.1",
@@ -283,6 +285,8 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@loadable/babel-plugin": "^5.0.1",
+    "@loadable/webpack-plugin": "5.0.2",
     "@storybook/addon-info": "^3.4.11",
     "@storybook/addon-options": "^3.4.10",
     "@storybook/addons": "^3.4.10",
@@ -357,7 +361,8 @@
     "webpack": "^3.12.0",
     "webpack-dev-middleware": "^2.0.6",
     "webpack-hot-middleware": "^2.18.0",
-    "webpack-subresource-integrity": "^1.0.0-rc.1"
+    "webpack-subresource-integrity": "^1.0.0-rc.1",
+    "write-file-webpack-plugin": "4.4.1"
   },
   "storybook-deployer": {
     "commitMessage": "[skip ci] Deploy Storybook to Github Pages"
